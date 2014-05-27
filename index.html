@@ -1,0 +1,219 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery uloader</title>
+    <link rel="stylesheet" href="dist/jquery-uloader.min.css">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/highlight/styles/github.css">
+    <style>
+        body {
+            background: #fff;
+            padding-bottom: 40px;
+        }
+        .table {
+            font-size: 14px;
+        }
+        .container {
+            width: 900px;
+        }
+        .header {
+            margin: 20px auto;
+        }
+        .content {
+            width: 100%;
+            height: 300px;
+            background: #f8f8f8;
+            margin-bottom: 20px;
+        }
+        .content h4 {
+            margin-top: 40px;
+        }
+        .uloader-container {
+            background: #0dcecb;
+        }
+        .btn-wrap {
+            margin: 20px auto 40px;
+        }
+        .btn-wrap a {
+            margin: 10px;
+        }
+        pre {
+            padding: 9px 14px;
+            margin-bottom: 14px;
+            background-color: #f7f7f9;
+            border: 1px solid #e1e1e8;
+            border-radius: 4px;
+        }
+        .hljs {
+            padding: 0;
+            color: #333;
+            background: none;
+        }
+        .github-btns {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="col-md-8">
+                <h1>jQuery Uloader</h1>
+            </div>
+            <div class="col-md-4">
+                <div class="github-btns">
+                    <iframe src="http://ghbtns.com/github-btn.html?user=4074&repo=jquery-uloader&type=watch&count=true" allowtransparency="true" border="0" frameborder="0" scrolling="0" width="102" height="20"></iframe>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=4074&repo=jquery-uloader&type=fork&count=true" allowtransparency="true" border="0" frameborder="0" scrolling="0" width="102" height="20"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="content">
+        <div class="container">
+            <h4>Click the buttons to show loader</h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="btn-wrap">
+            <h4>SpinKit</h4>
+            <div class="btn-spinkit"></div>
+
+            <h4>Css-loader</h4>
+            <div class="btn-cssloader"></div>
+            <br>
+            <p>
+                Css base on SpinKit:<a href="https://github.com/tobiasahlin/SpinKit" target="_blank">https://github.com/tobiasahlin/SpinKit</a>, Css-loader:
+                <a href="https://github.com/lukehaas/css-loaders" target="_blank">https://github.com/lukehaas/css-loaders</a>
+            </p>
+        </div>
+
+
+        <h2>Usage</h2>
+        <hr>
+        <h4>Basic</h4>
+        <p>Enable uloader via JavaScript:</p>
+        <div class="highlight">
+            <pre><code class="js">$('#myDiv').uloader(options)</code></pre>
+        </div>
+
+        <h4>Options</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Name</th>
+                        <th style="width: 50px;">type</th>
+                        <th style="width: 50px;">default</th>
+                        <th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>type</td>
+                        <td>string</td>
+                        <td>wave</td>
+                        <td>Which template will be use</td>
+                    </tr>
+                    <tr>
+                        <td>show</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Shows the loader when initialized.</td>
+                    </tr>
+                    <tr>
+                        <td>border</td>
+                        <td>boolean</td>
+                        <td>true</td>
+                        <td>Covers the borders of element</td>
+                    </tr>
+                    <tr>
+                        <td>template</td>
+                        <td>object</td>
+                        <td>{...}</td>
+                        <td>The template of loader. You can rewrite it using <code>$.fn.uloader.defaults</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Methods</h4>
+
+        <p>Show the uloader</p>
+        <div class="highlight">
+            <pre><code class="js">$('#myDiv').uloader('show')</code></pre>
+        </div>
+
+        <p>Hide the uloader</p>
+        <div class="highlight">
+            <pre><code class="js">$('#myDiv').uloader('hide')</code></pre>
+        </div>
+
+        <p>Toggle the uloader</p>
+        <div class="highlight">
+            <pre><code class="js">$('#myDiv').uloader('toggle')</code></pre>
+        </div>
+
+        <h4>Events</h4>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 150px;">Event Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>show.uloader</td>
+                        <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+                    </tr>
+                    <tr>
+                        <td>hide.uloader</td>
+                        <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/highlight/highlight.pack.js"></script>
+
+    <script src="dist/jquery-uloader.min.js"></script>
+    <script>
+        $('pre code').each(function (i, e) {
+            hljs.highlightBlock(e)
+        });
+
+        var types = $.fn.uloader.defaults.template
+        var html_cssloader = [],
+            html_spinkit = []
+
+         $.each(types, function (type, val) {
+            if (type.indexOf('css-loader') > -1) {
+                html_cssloader.push('<a class="btn btn-sm btn-default" loader-type="' + type + '">' + type + '</a>')
+            } else {
+                html_spinkit.push('<a class="btn btn-sm btn-default" loader-type="' + type + '">' + type + '</a>')
+            }
+
+        })
+
+         $('.btn-spinkit').html(html_spinkit.join(''))
+         $('.btn-cssloader').html(html_cssloader.join(''))
+
+         $('.btn-wrap').on('click', 'a', function () {
+            $('.content').uloader({
+                type: $(this).attr('loader-type')
+            })
+        })
+    </script>
+</body>
+
+</html>
